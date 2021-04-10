@@ -1,6 +1,9 @@
 const helmet =  require("helmet");
 const express = require("express");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser").json()
+
+const routes = require('./api/')
+
 const Logger = require('./logger')
 class Server {
 	constructor(port) {
@@ -8,9 +11,12 @@ class Server {
 		this.app = express()
         this.app.use(helmet());
         this.app.use(bodyParser);
+        this.app.use('/api',routes())
     }
 
      start(port, name, keyPath, certPath) {
+
+
         this.app.listen(this.port, () => {
             Logger.info(`
               ################################################

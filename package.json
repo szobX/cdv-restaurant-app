@@ -2,10 +2,10 @@
   "name": "restaurantapp",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "module": "true",
   "scripts": {
-    "dev": "nodemon ./app.js",
+    "dev": "nodemon src/app.js",
     "test": "jest"
   },
   "author": "",
