@@ -1,11 +1,10 @@
-const express = require('express')
+const express = require("express");
+const Sequelize = require("sequelize");
+// const sequalize = new Sequelize('')
 // import Server from './server.js'
-let Server = require('./server')
+let Server = require("./server");
 
-console.log(Server)
+console.log(Server);
 const server = new Server(3005);
 
-server.start()
-
-
-
+server.start();
