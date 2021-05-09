@@ -6,7 +6,7 @@
   "module": "true",
   "scripts": {
     "dev": "nodemon src/app.js",
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "node ./node_modules/mocha/bin/mocha test/menu.js"
   },
   "author": "",
   "license": "MIT",
