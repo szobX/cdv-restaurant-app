@@ -6,16 +6,18 @@
   "module": "true",
   "scripts": {
     "dev": "nodemon src/app.js",
-    "test": "jest"
+    "test": "nodemon test/app.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "lodash": "^4.17.21",
+    "mocha": "^8.4.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
     "winston": "^3.3.3"
