@@ -1,23 +1,25 @@
-import { sequelize, DataTypes } from '../init'
+// import { sequelize, Sequelize } from '../init.js';
 
-export const Menu = sequelize.define('Menu', {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUID,
-      allowNull: false
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },  
-    createdOn: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    active: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-      defaultValue: true
-    }
-  })
+export default (sequelize, Sequelize) => {
+    return sequelize.define('Menu', {
+        id: {
+            type: Sequelize.UUID,
+            primaryKey: true,
+            defaultValue: Sequelize.UUIDV4,
+            allowNull: false,
+        },
+        name: {
+            type: Sequelize.STRING,
+            allowNull: true,
+        },
+        createdOn: {
+            type: Sequelize.DATE,
+            allowNull: true,
+        },
+        active: {
+            type: Sequelize.BOOLEAN,
+            allowNull: true,
+            defaultValue: true,
+        },
+    });
+};

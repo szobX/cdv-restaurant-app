@@ -1,13 +1,13 @@
-import { User } from './models/user.model';
-import { Menu } from './models/menu.model';
-import { MenuPosition } from './models/menuposition.model';
-import { Order } from './models/order.model';
-import { OrderPosition } from './models/orderposition.model';
-import { Bill } from './models/bill.model';
-import { BillPosition } from './models/billposition.model';
-import { Currency } from './models/currency.model';
+import { User } from './models/user.model.js';
+import { Menu } from './models/menu.model.js';
+import { MenuPosition } from './models/menuposition.model.js';
+import { Order } from './models/order.model.js';
+import { OrderPosition } from './models/orderposition.model.js';
+import { Bill } from './models/bill.model.js';
+import { BillPosition } from './models/billposition.model.js';
+import { Currency } from './models/currency.model.js';
 
-export const configure_db = async () => {
+export const configDataBase = async () => {
     await User.sync();
     await Menu.sync();
     await MenuPosition.sync();
@@ -18,4 +18,4 @@ export const configure_db = async () => {
     await Currency.sync();
 };
 
-module.exports = configure_db;
+module.exports = configDataBase;

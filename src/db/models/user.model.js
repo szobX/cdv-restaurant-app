@@ -1,40 +1,39 @@
-import { sequelize, DataTypes } from '../init';
-import { RoleEnum } from '../enums/role.enum';
+// import { RoleEnum } from '../enums/role.enum.js';
 
-module.exports = sequelize.define('User', {
-    id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUID,
-        allowNull: false,
-    },
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    lastName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    phoneNumber: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    role: {
-        type: DataTypes.ENUM(RoleEnum.Client, RoleEnum.Manager, RoleEnum.Staff),
-        allowNull: true,
-    },
-    createdOn: {
-        type: DataTypes.DATE,
-        allowNull: true,
-    },
-    active: {
-        type: DataTypes.BOOLEAN,
-        allowNull: true,
-        defaultValue: true,
-    },
-});
+export default (sequelize, Sequelize) => {
+    const User = sequelize.define('User', {
+        id: {
+            type: Sequelize.UUID,
+            primaryKey: true,
+            defaultValue: Sequelize.UUIDV4,
+            allowNull: false,
+        },
+        firstName: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        lastName: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        email: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        phoneNumber: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        role: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+        },
+
+        active: {
+            type: Sequelize.BOOLEAN,
+            allowNull: true,
+            defaultValue: true,
+        },
+    });
+    return User;
+};

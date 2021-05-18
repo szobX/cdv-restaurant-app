@@ -1,7 +1,8 @@
 import helmet from 'helmet';
 import express from 'express';
 // const db = require('./db/models');
-// import dbSync from './db/config.js';
+// import configDataBase from './db/config.js';
+import dbInit from './db/init.js';
 import bodyParser from 'body-parser';
 
 import Logger from './logger.js';
@@ -14,11 +15,13 @@ export default class Server {
         this.app.use(helmet());
         this.app.use(bodyParser.json());
         initRouter(this.app);
-
-        // dbSync();
-        // db.sequelize.sync({ force: true }).then(() => {
-        //     console.log('Drop and re-sync db.');
-        // });
+        dbInit.sequelize.sync({ force: true }).then(() => {
+            console.log('Drop and re-sync db.');
+            // configDataBase();
+            // db.sequelize.sync({ force: true }).then(() => {
+            //     console.log('Drop and re-sync db.');
+            // });
+        });
     }
 
     start(port, name, keyPath, certPath) {

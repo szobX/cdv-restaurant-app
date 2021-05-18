@@ -3,6 +3,7 @@ import { Router } from 'express';
 import Logger from '../logger.js';
 
 import MenuRoutes from './routes/menu.js';
+import UserRoutes from './routes/user.js';
 // const mainRouter = Router();
 
 // const MenuRoutes = require('./routes/menu.js');
@@ -15,5 +16,6 @@ export default function initRouter(app) {
     app.get('/api/', (req, res) => {
         return res.send({ message: 'server running' });
     });
+    UserRoutes(app);
     MenuRoutes(app);
 }

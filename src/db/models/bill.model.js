@@ -1,45 +1,45 @@
-import { sequelize, DataTypes } from '../init'
-import { Currency } from './currency.model'
-import { Order } from './order.model'
-
-export const Bill = sequelize.define('Bill', {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUID,
-      allowNull: false
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },  
-    createdOn: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    active: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-      defaultValue: true
-    },
-    tableNumber: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    currencyId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-      references: {
-        model: Currency,
-        key: 'id'
-      }
-    },
-    orderId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-      references: {
-        model: Order,
-        key: 'id'
-      }
-    }
-  })
+import Currency from './currency.model.js';
+import Order from './order.model.js';
+export default (sequelize, Sequelize) => {
+    return sequelize.define('Bill', {
+        id: {
+            type: Sequelize.UUID,
+            primaryKey: true,
+            defaultValue: Sequelize.UUIDV4,
+            allowNull: false,
+        },
+        name: {
+            type: Sequelize.STRING,
+            allowNull: true,
+        },
+        createdOn: {
+            type: Sequelize.DATE,
+            allowNull: true,
+        },
+        active: {
+            type: Sequelize.BOOLEAN,
+            allowNull: true,
+            defaultValue: true,
+        },
+        tableNumber: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+        },
+        currencyId: {
+            type: Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: sequelize.models.Currency,
+                key: 'id',
+            },
+        },
+        orderId: {
+            type: Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: sequelize.models.Order,
+                key: 'id',
+            },
+        },
+    });
+};
