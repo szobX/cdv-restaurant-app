@@ -4,6 +4,7 @@
     "description": "",
     "main": "src/app.js",
     "module": "true",
+    "type": "module",
     "scripts": {
         "dev": "nodemon src/app.js",
         "test": "jest",

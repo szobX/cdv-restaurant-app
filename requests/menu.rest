@@ -1,0 +1,6 @@
+@baseUrl = http://localhost:3005
+GET {{baseUrl}}/api/menus HTTP/1.1
+
+
+
+

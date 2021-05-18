@@ -1,20 +1,21 @@
-const route = require('express').Router()
+// const route = require('express').Router();
+import express from 'express';
+// const menuController = require('../../models/menu/controller.js');
 
+const MenuRoutes = (app) => {
+    const router = express.Router();
+    const route = '/api/menus';
 
-const MenuRoutes  = (app) =>{
-    app.use('/menus',route);
-console.log('init')
-    route.get('/',(request,response)=>{
-        console.log(request)
-        return response.json(
-            [{
-               postion:1,
-               title:'Kotlet schabowy',
-               price:30,
-               curreny:'ZŁ' 
-            }]
-        )
-    })
-}
+    router.get('/', (request, res) => {
+        console.log(request, res);
+        return res.send({ message: 'Menus GET ' });
+    });
+    router.get('/:id', (request, response) => {
+        console.log(request, response);
+        return response.send({ ...request.params });
+    });
 
-module.exports = MenuRoutes
+    app.use(route, router);
+};
+export default MenuRoutes;
+// module.exports = MenuRoutes;
