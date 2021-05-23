@@ -1,18 +1,18 @@
-import MenuCategory from './menu.model.js';
+import Menu from './menu.model.js';
 
 export default (sequelize, Sequelize) => {
-    const MenuPosition = sequelize.define('MenuPosition', {
+    const MenuCategory = sequelize.define('MenuCategory', {
         id: {
             type: Sequelize.UUID,
             primaryKey: true,
             defaultValue: Sequelize.UUIDV4,
             allowNull: false,
         },
-        menuCategoryId: {
+        menuId: {
             type: Sequelize.UUID,
             allowNull: false,
             references: {
-                model: sequelize.models.MenuCategory,
+                model: sequelize.models.Menu,
                 key: 'id',
             },
         },
@@ -30,5 +30,5 @@ export default (sequelize, Sequelize) => {
             defaultValue: true,
         },
     });
-    return MenuPosition;
+    return MenuCategory;
 };

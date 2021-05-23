@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import User from './models/user.model.js';
 import Menu from './models/menu.model.js';
+import MenuCategory from './models/menucategory.model.js';
 import MenuPosition from './models/menuposition.model.js';
 import Order from './models/order.model.js';
 import OrderPosition from './models/orderposition.model.js';
@@ -20,6 +21,7 @@ db.Currency = Currency(sequelize, Sequelize);
 
 db.users = User(sequelize, Sequelize);
 db.menus = Menu(sequelize, Sequelize);
+db.menucategories = MenuCategory(sequelize, Sequelize);
 db.menuPositions = MenuPosition(sequelize, Sequelize);
 db.Order = Order(sequelize, Sequelize);
 db.OrderPosition = OrderPosition(sequelize, Sequelize);

@@ -1,6 +1,7 @@
 import { User } from './models/user.model.js';
 import { Menu } from './models/menu.model.js';
 import { MenuPosition } from './models/menuposition.model.js';
+import { MenuPosition } from './models/menuposition.model.js';
 import { Order } from './models/order.model.js';
 import { OrderPosition } from './models/orderposition.model.js';
 import { Bill } from './models/bill.model.js';
